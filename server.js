@@ -12,6 +12,13 @@ app.use(require('./routes'));
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/pizza-hunt', {
     useNewUrlParser: true,
     useUnifiedTopology: true
+})
+.then(()=>{
+    console.log("mongodb is connected");
+})
+.catch((error)=>{
+    console.log("mongodb not connected");
+    console.log(error);
 });
 
 // Use this to log mongo queries being executed!
