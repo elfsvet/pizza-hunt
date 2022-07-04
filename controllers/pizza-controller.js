@@ -8,7 +8,7 @@ const pizzaController = {
         // to display like include in sql call to see more information in the api call
             .populate({
                 path: 'comments',
-                // dont want it to return we use minus. without it it will return only the select.
+                // don't want it to return we use minus. without it it will return only the select.
                 select: '-__v'
             })
             .select('-__v')
