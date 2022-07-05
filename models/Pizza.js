@@ -37,8 +37,14 @@ const PizzaSchema = new Schema({
 
 // get total count of comments and replies on retrieval
 PizzaSchema.virtual('commentCount').get(function () {
-    return this.comments.length;
+    // ! PLAY WITH REDUCE MORE
+    return this.comments.reduce((total, comment) => total + comment.replies.length + 1, 0);
 });
+// The code is trying to find the number of comments in a comment.
+// It does this by using a for loop that goes through each comment and adds 1 to the total count.
+// The code is also looking at the replies property on each comment, which is an array with all of the replies from other users who have commented on that particular post.
+// The code would be used to calculate the number of comments on a post.
+// The code above attempts to calculate the total number of replies for a comment.
 
 // create the Pizza model using the PizzaSchema
 const Pizza = model('Pizza', PizzaSchema);
