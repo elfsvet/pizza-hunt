@@ -8,8 +8,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.use(require('./routes'));
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://0.0.0.0:27017/pizza-hunt', {
+//  try this one next time 
+// 127.0.0.1 or 0.0.0.0
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/pizza-hunt', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
